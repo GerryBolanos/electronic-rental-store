@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Rented Equipment Status</h1>
+  <p>The Rental Store has the following rented records:</p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Customer ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Electronic ID</th>
+        <th>Rental Date</th>
+        <th>Return Date</th>
+      </tr>
+    </thead>
+    {% for custid, fname, lname, elecid, rental_date, return_date in rented_details %}
+    <tr>
+      <td>{{custid}}</td>
+      <td>{{fname}}</td>
+      <td>{{lname}}</td>
+      <td>{{elecid}}</td>
+      <td>{{rental_date}}</td>
+      <td>{{return_date}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+
+{% endblock %}

@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Electronic Rental Store</h1>
+  <p>Welcome to the Electronic Rental Store Project for <em>CSC 174</em>!</p>
+  <p><em><strong>Authors:</strong> Gerardo Bolanos, July Pham</em></p>
+  <h2>All Store Contents</h2>
+<p>The Rental Store has the following record counts:</p>
+<ul>
+  <li><strong>Tablets:</strong> {{ tabCount }}</li>
+  <li><strong>Phones:</strong> {{ phoneCount }}</li>
+  <li><strong>Laptops:</strong> {{ lptCount }}</li>
+</ul>
+<br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Type</th>
+        <th>Model</th>
+        <th>Stock</th>
+        <th>OS</th>
+        <th>Screen Size</th>
+        <th>Storage</th>
+        <th>GPU</th>
+        <th>Refresh Rate</th>
+        <th>Carrier</th>
+      </tr>
+    </thead>
+    {% for elecid, electype, model, stock, os, screen_size, storage, gpu, refresh_rate, carrier in queryset %}
+      <tr>
+        <td>{{elecid}}</td>
+        <td>{{electype}}</td>
+        <td>{{model}}</td>
+        <td>{{stock}}</td>
+        <td>{{os}}</td>
+        <td>{{screen_size}}</td>
+        <td>{{storage}}</td>
+        <td>{{gpu}}</td>
+        <td>{{refresh_rate}}</td>
+        <td>{{carrier}}</td>
+      </tr>
+    {% endfor %}
+  </table>
+
+  <h2>Laptops</h2>
+  <p>The Rental Store has the following laptop inventory records:</p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Type</th>
+        <th>Model</th>
+        <th>Stock</th>
+        <th>OS</th>
+        <th>Screen Size</th>
+        <th>Storage</th>
+        <th>GPU</th>
+      </tr>
+    </thead>
+    {% for elecid, electype, model, stock, os, screen_size, storage, gpu in laptops %}
+      <tr>
+        <td>{{elecid}}</td>
+        <td>{{electype}}</td>
+        <td>{{model}}</td>
+        <td>{{stock}}</td>
+        <td>{{os}}</td>
+        <td>{{screen_size}}</td>
+        <td>{{storage}}</td>
+        <td>{{gpu}}</td>
+      </tr>
+    {% endfor %}
+  </table>
+
+  <h2>Tablets</h2>
+  <p>The Rental Store has the following tablet inventory records:</p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Type</th>
+        <th>Model</th>
+        <th>Stock</th>
+        <th>OS</th>
+        <th>Screen Size</th>
+        <th>Storage</th>
+        <th>Refresh Rate</th>
+      </tr>
+    </thead>
+    {% for elecid, electype, model, stock, os, screen_size, storage, refresh_rate in tablets %}
+      <tr>
+        <td>{{elecid}}</td>
+        <td>{{electype}}</td>
+        <td>{{model}}</td>
+        <td>{{stock}}</td>
+        <td>{{os}}</td>
+        <td>{{screen_size}}</td>
+        <td>{{storage}}</td>
+        <td>{{refresh_rate}}</td>
+      </tr>
+    {% endfor %}
+  </table>
+
+  <h2>Phones</h2>
+  <p>The Rental Store has the following phone inventory records:</p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Type</th>
+        <th>Model</th>
+        <th>Stock</th>
+        <th>OS</th>
+        <th>Screen Size</th>
+        <th>Storage</th>
+        <th>Carrier</th>
+      </tr>
+    </thead>
+    {% for elecid, electype, model, stock, os, screen_size, storage, carrier in mobilephones %}
+      <tr>
+        <td>{{elecid}}</td>
+        <td>{{electype}}</td>
+        <td>{{model}}</td>
+        <td>{{stock}}</td>
+        <td>{{os}}</td>
+        <td>{{screen_size}}</td>
+        <td>{{storage}}</td>
+        <td>{{carrier}}</td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
